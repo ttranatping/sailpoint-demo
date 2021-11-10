@@ -358,10 +358,10 @@
             "items": [{
                 "password": "${PING_IDENTITY_PASSWORD}",
                 "roles": [
-                    "CRYPTO_ADMINISTRATOR",
-                    "ADMINISTRATOR",
                     "EXPRESSION_ADMINISTRATOR",
-                    "USER_ADMINISTRATOR"
+                    "ADMINISTRATOR",
+                    "USER_ADMINISTRATOR",
+                    "CRYPTO_ADMINISTRATOR"
                 ],
                 "auditor": false,
                 "description": "Initial administrator user.",
@@ -1013,7 +1013,7 @@
                             },
                             {
                                 "name": "Create entry for devices",
-                                "value": ""
+                                "value": "false"
                             },
                             {
                                 "name": "Encryption Key For Devices",
@@ -1377,6 +1377,14 @@
                                                 }
                                             },
                                             "context": "Success",
+                                            "inputUserIdMapping": {
+                                                "source": {
+                                                    "id": "htmlFormAdapter",
+                                                    "type": "ADAPTER"
+                                                },
+                                                "value": "username"
+                                            },
+                                            "userIdAuthenticated": true,
                                             "type": "AUTHN_SOURCE"
                                         }
                                     }
