@@ -301,7 +301,7 @@
                     "saml2EntityId": "evaluation",
                     "saml1xIssuerId": "",
                     "wsfedRealm": "",
-                    "baseUrl": "https://servoces-apac2.skytap.com:8218",
+                    "baseUrl": "https://services-apac2.skytap.com:8218",
                     "saml1xSourceId": ""
                 },
                 "contactInfo": {},
