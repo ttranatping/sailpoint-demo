@@ -301,7 +301,7 @@
                     "saml2EntityId": "evaluation",
                     "saml1xIssuerId": "",
                     "wsfedRealm": "",
-                    "baseUrl": "https://localhost:9031",
+                    "baseUrl": "https://servoces-apac2.skytap.com:8218",
                     "saml1xSourceId": ""
                 },
                 "contactInfo": {},
@@ -370,8 +370,8 @@
                 "roles": [
                     "ADMINISTRATOR",
                     "CRYPTO_ADMINISTRATOR",
-                    "USER_ADMINISTRATOR",
-                    "EXPRESSION_ADMINISTRATOR"
+                    "EXPRESSION_ADMINISTRATOR",
+                    "USER_ADMINISTRATOR"
                 ],
                 "auditor": false,
                 "description": "Initial administrator user.",
@@ -1256,8 +1256,8 @@
                     "spSamlIdentityMapping": "STANDARD",
                     "signAssertions": false,
                     "enabledProfiles": [
-                        "SP_INITIATED_SSO",
-                        "IDP_INITIATED_SSO"
+                        "IDP_INITIATED_SSO",
+                        "SP_INITIATED_SSO"
                     ],
                     "signResponseAsRequired": true,
                     "adapterMappings": [],
@@ -1270,8 +1270,7 @@
                 "loggingMode": "STANDARD",
                 "id": "DjJCVRxTJAy.-yWfa2zP2BVtfAN",
                 "type": "SP",
-                "connectionTargetType": "STANDARD",
-                "licenseConnectionGroup": ""
+                "connectionTargetType": "STANDARD"
             }],
             "resourceType": "/idp/spConnections"
         },
