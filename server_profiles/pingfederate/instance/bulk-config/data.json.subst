@@ -257,6 +257,16 @@
         },
         {
             "operationType": "SAVE",
+            "items": [{
+                "password": "${keyPairs_signing_items_id5se889xbpd08y9jwpsb7t1g_id5se889xbpd08y9jwpsb7t1g_password}",
+                "fileData": "${keyPairs_signing_items_id5se889xbpd08y9jwpsb7t1g_id5se889xbpd08y9jwpsb7t1g_fileData}",
+                "format": "PKCS12",
+                "id": "id5se889xbpd08y9jwpsb7t1g"
+            }],
+            "resourceType": "/keyPairs/signing"
+        },
+        {
+            "operationType": "SAVE",
             "items": [{"staticJwksEnabled": false}],
             "resourceType": "/keyPairs/oauthOpenIdConnect"
         },
@@ -358,10 +368,10 @@
             "items": [{
                 "password": "${PING_IDENTITY_PASSWORD}",
                 "roles": [
-                    "EXPRESSION_ADMINISTRATOR",
                     "ADMINISTRATOR",
+                    "CRYPTO_ADMINISTRATOR",
                     "USER_ADMINISTRATOR",
-                    "CRYPTO_ADMINISTRATOR"
+                    "EXPRESSION_ADMINISTRATOR"
                 ],
                 "auditor": false,
                 "description": "Initial administrator user.",
@@ -1186,6 +1196,88 @@
         {
             "operationType": "SAVE",
             "items": [{
+                "contactInfo": {},
+                "virtualEntityIds": [],
+                "credentials": {
+                    "certs": [],
+                    "signingSettings": {
+                        "signingKeyPairRef": {
+                            "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/id5se889xbpd08y9jwpsb7t1g",
+                            "id": "id5se889xbpd08y9jwpsb7t1g"
+                        },
+                        "includeRawKeyInSignature": false,
+                        "includeCertInSignature": false,
+                        "algorithm": "SHA256withRSA"
+                    }
+                },
+                "name": "Sailpoint",
+                "active": true,
+                "spBrowserSso": {
+                    "requireSignedAuthnRequests": false,
+                    "authenticationPolicyContractAssertionMappings": [{
+                        "abortSsoTransactionAsFailSafe": false,
+                        "authenticationPolicyContractRef": {
+                            "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Y1oMjgrGi2aAyrVO",
+                            "id": "Y1oMjgrGi2aAyrVO"
+                        },
+                        "restrictedVirtualEntityIds": [],
+                        "attributeContractFulfillment": {"SAML_SUBJECT": {
+                            "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
+                            "value": "subject"
+                        }},
+                        "restrictVirtualEntityIds": false,
+                        "attributeSources": [],
+                        "issuanceCriteria": {"conditionalCriteria": []}
+                    }],
+                    "encryptionPolicy": {
+                        "encryptSloSubjectNameId": false,
+                        "encryptAssertion": false,
+                        "encryptedAttributes": [],
+                        "sloSubjectNameIDEncrypted": false
+                    },
+                    "ssoServiceEndpoints": [{
+                        "isDefault": true,
+                        "binding": "POST",
+                        "index": 0,
+                        "url": "https://anzsspr-poc.login.sailpoint.com/saml/SSO/alias/anzsspr-poc-sp"
+                    }],
+                    "attributeContract": {
+                        "coreAttributes": [{
+                            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+                            "name": "SAML_SUBJECT"
+                        }],
+                        "extendedAttributes": []
+                    },
+                    "incomingBindings": [
+                        "POST",
+                        "REDIRECT"
+                    ],
+                    "protocol": "SAML20",
+                    "spSamlIdentityMapping": "STANDARD",
+                    "signAssertions": false,
+                    "enabledProfiles": [
+                        "SP_INITIATED_SSO",
+                        "IDP_INITIATED_SSO"
+                    ],
+                    "signResponseAsRequired": true,
+                    "adapterMappings": [],
+                    "assertionLifetime": {
+                        "minutesAfter": 5,
+                        "minutesBefore": 5
+                    }
+                },
+                "entityId": "https://anzsspr-poc.identitynow.com/sp",
+                "loggingMode": "STANDARD",
+                "id": "DjJCVRxTJAy.-yWfa2zP2BVtfAN",
+                "type": "SP",
+                "connectionTargetType": "STANDARD",
+                "licenseConnectionGroup": ""
+            }],
+            "resourceType": "/idp/spConnections"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
                 "trackAdapterSessionsForLogout": false,
                 "sessionRevocationLifetime": 490,
                 "revokeUserSessionOnLogout": true
@@ -1333,7 +1425,7 @@
                 "failIfNoSelection": false,
                 "authnSelectionTrees": [
                     {
-                        "name": "Force MFA",
+                        "name": "Password Reset MFA",
                         "enabled": true,
                         "rootNode": {
                             "children": [{
@@ -1342,62 +1434,40 @@
                                         "context": "Fail",
                                         "type": "DONE"
                                     }},
-                                    {
-                                        "children": [
-                                            {"action": {
-                                                "context": "Fail",
-                                                "type": "DONE"
-                                            }},
-                                            {"action": {
-                                                "attributeMapping": {
-                                                    "attributeContractFulfillment": {"subject": {
-                                                        "source": {
-                                                            "id": "htmlFormAdapter",
-                                                            "type": "ADAPTER"
-                                                        },
-                                                        "value": "username"
-                                                    }},
-                                                    "attributeSources": [],
-                                                    "issuanceCriteria": {"conditionalCriteria": []}
-                                                },
-                                                "authenticationPolicyContractRef": {
-                                                    "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Y1oMjgrGi2aAyrVO",
-                                                    "id": "Y1oMjgrGi2aAyrVO"
-                                                },
-                                                "context": "Success",
-                                                "type": "APC_MAPPING"
-                                            }}
-                                        ],
-                                        "action": {
-                                            "authenticationSource": {
-                                                "type": "IDP_ADAPTER",
-                                                "sourceRef": {
-                                                    "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapter",
-                                                    "id": "pingidAdapter"
-                                                }
-                                            },
-                                            "context": "Success",
-                                            "inputUserIdMapping": {
+                                    {"action": {
+                                        "attributeMapping": {
+                                            "attributeContractFulfillment": {"subject": {
                                                 "source": {
-                                                    "id": "htmlFormAdapter",
+                                                    "id": "pingidAdapter",
                                                     "type": "ADAPTER"
                                                 },
-                                                "value": "username"
-                                            },
-                                            "userIdAuthenticated": true,
-                                            "type": "AUTHN_SOURCE"
-                                        }
-                                    }
+                                                "value": "subject"
+                                            }},
+                                            "attributeSources": [],
+                                            "issuanceCriteria": {"conditionalCriteria": []}
+                                        },
+                                        "authenticationPolicyContractRef": {
+                                            "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Y1oMjgrGi2aAyrVO",
+                                            "id": "Y1oMjgrGi2aAyrVO"
+                                        },
+                                        "context": "Success",
+                                        "type": "APC_MAPPING"
+                                    }}
                                 ],
                                 "action": {
                                     "authenticationSource": {
                                         "type": "IDP_ADAPTER",
                                         "sourceRef": {
-                                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/htmlFormAdapter",
-                                            "id": "htmlFormAdapter"
+                                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapter",
+                                            "id": "pingidAdapter"
                                         }
                                     },
                                     "context": "FORCE_MFA",
+                                    "inputUserIdMapping": {
+                                        "source": {"type": "CONTEXT"},
+                                        "value": "context.RequestedUser"
+                                    },
+                                    "userIdAuthenticated": true,
                                     "type": "AUTHN_SOURCE"
                                 }
                             }],
