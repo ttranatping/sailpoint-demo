@@ -392,7 +392,7 @@
         },
         {
             "operationType": "SAVE",
-            "items": [{"virtualHostNames": []}],
+            "items": [{"virtualHostNames": ["localhost"]}],
             "resourceType": "/virtualHostNames"
         },
         {
@@ -1055,7 +1055,7 @@
                             },
                             {
                                 "name": "Require PingID Registration",
-                                "value": "true"
+                                "value": "false"
                             }
                         ]
                     },
