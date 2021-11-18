@@ -369,9 +369,9 @@
                 "password": "${PING_IDENTITY_PASSWORD}",
                 "roles": [
                     "ADMINISTRATOR",
+                    "USER_ADMINISTRATOR",
                     "CRYPTO_ADMINISTRATOR",
-                    "EXPRESSION_ADMINISTRATOR",
-                    "USER_ADMINISTRATOR"
+                    "EXPRESSION_ADMINISTRATOR"
                 ],
                 "auditor": false,
                 "description": "Initial administrator user.",
@@ -1055,7 +1055,7 @@
                             },
                             {
                                 "name": "Require PingID Registration",
-                                "value": "false"
+                                "value": "true"
                             }
                         ]
                     },
@@ -1176,6 +1176,370 @@
                         ],
                         "extendedAttributes": []
                     }
+                },
+                {
+                    "attributeMapping": {
+                        "inherited": true,
+                        "attributeContractFulfillment": {
+                            "org.sourceid.saml20.adapter.idp.authn.authnCtx": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "org.sourceid.saml20.adapter.idp.authn.authnCtx"
+                            },
+                            "pingid.authentication.accessing.device.city": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.accessing.device.city"
+                            },
+                            "pingid.authentication.accessing.device.ip": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.accessing.device.ip"
+                            },
+                            "pingid.authentication.authenticating.device.is.mdm": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.is.mdm"
+                            },
+                            "pingid.authentication.authenticating.device.is.rooted": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.is.rooted"
+                            },
+                            "pingid.authentication.type": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.type"
+                            },
+                            "subject": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "subject"
+                            },
+                            "pingid.authentication.authenticating.device.id": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.id"
+                            },
+                            "pingid.authentication.authenticating.device.longitude": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.longitude"
+                            },
+                            "pingid.authentication.authenticating.device.is.locked": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.is.locked"
+                            },
+                            "pingid.authentication.authenticating.device.model": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.model"
+                            },
+                            "pingid_state": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid_state"
+                            },
+                            "pingid.authentication.authenticating.device.ip": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.ip"
+                            },
+                            "pingid.authentication.authenticating.device.latitude": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.latitude"
+                            },
+                            "pingid.authentication.authenticating.device.altitude": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.altitude"
+                            },
+                            "winlogin.auth.response": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "winlogin.auth.response"
+                            },
+                            "pingid.authentication.authenticating.device.accuracy": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.accuracy"
+                            },
+                            "pingid.authentication.authenticating.device.app.version": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.app.version"
+                            },
+                            "pingid.authentication.authenticating.device.os.version": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.authenticating.device.os.version"
+                            },
+                            "pingid.authentication.accessing.device.country": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.accessing.device.country"
+                            },
+                            "pingid.authentication.accessing.device.ip.reputation": {
+                                "source": {"type": "ADAPTER"},
+                                "value": "pingid.authentication.accessing.device.ip.reputation"
+                            }
+                        },
+                        "attributeSources": [],
+                        "issuanceCriteria": {"conditionalCriteria": []}
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "inherited": true,
+                                "name": "PingID Properties",
+                                "value": "${idp_adapters_items_pingidAdapterRequireRegistration_configuration_fields_PingID_Properties_value}"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "LDAP Data source",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Query Directory",
+                                "value": "false"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Base Domain",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Filter",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "LDAP Search Scope",
+                                "value": "3"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "fname attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "lname attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "PingID user attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "email attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "group attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "phone attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "YubiKey attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Secondary email attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Voice number attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "State attribute",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "PingID Heartbeat Timeout",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Authentication During Errors",
+                                "value": "REJECT"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Users without a paired device",
+                                "value": "block"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "LDAP Data Source For Devices",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Create entry for devices",
+                                "value": "false"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Encryption Key For Devices",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Distinguished Name Pattern",
+                                "value": ""
+                            },
+                            {
+                                "inherited": true,
+                                "name": "HTML Template",
+                                "value": "pingid.offline.auth.login.template.html"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Cookie Duration",
+                                "value": "1"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "PingID Properties File Name",
+                                "value": "pingid.properties.1"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Keep Cookies at Sign-off",
+                                "value": "false"
+                            },
+                            {
+                                "inherited": true,
+                                "name": "Refresh UserId Cookie",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Require PingID Registration",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    "name": "pingidAdapterRequireRegistration",
+                    "id": "pingidAdapterRequireRegistration",
+                    "pluginDescriptorRef": {
+                        "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.pingid.PingIDAdapter",
+                        "id": "com.pingidentity.adapters.pingid.PingIDAdapter"
+                    },
+                    "attributeContract": {
+                        "maskOgnlValues": false,
+                        "inherited": true,
+                        "coreAttributes": [
+                            {
+                                "masked": false,
+                                "name": "org.sourceid.saml20.adapter.idp.authn.authnCtx",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.accessing.device.city",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.accessing.device.ip",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.is.mdm",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.type",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.is.rooted",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "subject",
+                                "pseudonym": true
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.id",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.longitude",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.model",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.is.locked",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid_state",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.ip",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.latitude",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.altitude",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "winlogin.auth.response",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.accuracy",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.app.version",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.authenticating.device.os.version",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.accessing.device.ip.reputation",
+                                "pseudonym": false
+                            },
+                            {
+                                "masked": false,
+                                "name": "pingid.authentication.accessing.device.country",
+                                "pseudonym": false
+                            }
+                        ],
+                        "extendedAttributes": []
+                    },
+                    "parentRef": {
+                        "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapter",
+                        "id": "pingidAdapter"
+                    }
                 }
             ],
             "resourceType": "/idp/adapters"
@@ -1249,8 +1613,8 @@
                         "extendedAttributes": []
                     },
                     "incomingBindings": [
-                        "POST",
-                        "REDIRECT"
+                        "REDIRECT",
+                        "POST"
                     ],
                     "protocol": "SAML20",
                     "spSamlIdentityMapping": "STANDARD",
@@ -1437,7 +1801,7 @@
                                         "attributeMapping": {
                                             "attributeContractFulfillment": {"subject": {
                                                 "source": {
-                                                    "id": "pingidAdapter",
+                                                    "id": "pingidAdapterRequireRegistration",
                                                     "type": "ADAPTER"
                                                 },
                                                 "value": "subject"
@@ -1457,8 +1821,8 @@
                                     "authenticationSource": {
                                         "type": "IDP_ADAPTER",
                                         "sourceRef": {
-                                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapter",
-                                            "id": "pingidAdapter"
+                                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapterRequireRegistration",
+                                            "id": "pingidAdapterRequireRegistration"
                                         }
                                     },
                                     "context": "FORCE_MFA",
@@ -1480,7 +1844,7 @@
                         }
                     },
                     {
-                        "name": "No MFA",
+                        "name": "Standard Policy",
                         "enabled": true,
                         "rootNode": {
                             "children": [
@@ -1488,25 +1852,52 @@
                                     "context": "Fail",
                                     "type": "DONE"
                                 }},
-                                {"action": {
-                                    "attributeMapping": {
-                                        "attributeContractFulfillment": {"subject": {
+                                {
+                                    "children": [
+                                        {"action": {
+                                            "context": "Fail",
+                                            "type": "DONE"
+                                        }},
+                                        {"action": {
+                                            "attributeMapping": {
+                                                "attributeContractFulfillment": {"subject": {
+                                                    "source": {
+                                                        "id": "htmlFormAdapter",
+                                                        "type": "ADAPTER"
+                                                    },
+                                                    "value": "username"
+                                                }},
+                                                "attributeSources": [],
+                                                "issuanceCriteria": {"conditionalCriteria": []}
+                                            },
+                                            "authenticationPolicyContractRef": {
+                                                "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Y1oMjgrGi2aAyrVO",
+                                                "id": "Y1oMjgrGi2aAyrVO"
+                                            },
+                                            "context": "Success",
+                                            "type": "APC_MAPPING"
+                                        }}
+                                    ],
+                                    "action": {
+                                        "authenticationSource": {
+                                            "type": "IDP_ADAPTER",
+                                            "sourceRef": {
+                                                "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapter",
+                                                "id": "pingidAdapter"
+                                            }
+                                        },
+                                        "context": "Success",
+                                        "inputUserIdMapping": {
                                             "source": {
                                                 "id": "htmlFormAdapter",
                                                 "type": "ADAPTER"
                                             },
                                             "value": "username"
-                                        }},
-                                        "attributeSources": [],
-                                        "issuanceCriteria": {"conditionalCriteria": []}
-                                    },
-                                    "authenticationPolicyContractRef": {
-                                        "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Y1oMjgrGi2aAyrVO",
-                                        "id": "Y1oMjgrGi2aAyrVO"
-                                    },
-                                    "context": "Success",
-                                    "type": "APC_MAPPING"
-                                }}
+                                        },
+                                        "userIdAuthenticated": true,
+                                        "type": "AUTHN_SOURCE"
+                                    }
+                                }
                             ],
                             "action": {
                                 "authenticationSource": {
