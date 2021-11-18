@@ -368,10 +368,10 @@
             "items": [{
                 "password": "${PING_IDENTITY_PASSWORD}",
                 "roles": [
-                    "ADMINISTRATOR",
-                    "USER_ADMINISTRATOR",
+                    "EXPRESSION_ADMINISTRATOR",
                     "CRYPTO_ADMINISTRATOR",
-                    "EXPRESSION_ADMINISTRATOR"
+                    "USER_ADMINISTRATOR",
+                    "ADMINISTRATOR"
                 ],
                 "auditor": false,
                 "description": "Initial administrator user.",
@@ -1620,8 +1620,8 @@
                     "spSamlIdentityMapping": "STANDARD",
                     "signAssertions": false,
                     "enabledProfiles": [
-                        "IDP_INITIATED_SSO",
-                        "SP_INITIATED_SSO"
+                        "SP_INITIATED_SSO",
+                        "IDP_INITIATED_SSO"
                     ],
                     "signResponseAsRequired": true,
                     "adapterMappings": [],
@@ -1667,6 +1667,40 @@
                 "enableSessions": false
             }],
             "resourceType": "/session/authenticationSessionPolicies/global"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "authnContextSensitive": false,
+                    "timeoutDisplayUnit": "MINUTES",
+                    "authenticationSource": {
+                        "type": "IDP_ADAPTER",
+                        "sourceRef": {
+                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapter",
+                            "id": "pingidAdapter"
+                        }
+                    },
+                    "id": "jnlbtA1nU1PDzKWomGaYsWxMB",
+                    "persistent": false,
+                    "enableSessions": false
+                },
+                {
+                    "authnContextSensitive": false,
+                    "timeoutDisplayUnit": "MINUTES",
+                    "authenticationSource": {
+                        "type": "IDP_ADAPTER",
+                        "sourceRef": {
+                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/pingidAdapterRequireRegistration",
+                            "id": "pingidAdapterRequireRegistration"
+                        }
+                    },
+                    "id": "ltYvwt50QgCUk8xrsEP7G3KMl",
+                    "persistent": false,
+                    "enableSessions": false
+                }
+            ],
+            "resourceType": "/session/authenticationSessionPolicies"
         },
         {
             "operationType": "SAVE",
